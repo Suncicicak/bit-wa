@@ -1,18 +1,49 @@
-// for (let i = 0; i < 100; i++) {
+const arr = [];
 
-// }
-function bla(){
-    const id = 5;
-    return id;
+for (let i = 0; i < 100; i++) {
+    arr.push(new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(i)
+        }, Math.random() * 500)
+    }));
 }
 
-let p = new Promise((resolve, reject) => {
-    setTimeout(function(){
-        bla();
-        resolve();
-    }, Math.random()*490+10)
-});
+// var promise = Promise.race(arr)
+// promise.then(function(id) {
+//     console.log(id);
 
-p.then(function() {
-    console.log(p);
-});
+// });
+
+for (let i = 0; i < 100; i++) {
+    var x = new Promise((resolve, reject) => {
+        setTimeout(() => {   
+        if (i < 50) {
+                reject("rejected");
+            } else {
+                resolve();
+            }
+        })
+    });
+
+    x.then(function () {
+        console.log('Correct input');
+        
+    }, function (err) {    
+        console.log('Invalid input: ' + err);
+        
+    });
+    
+    x.catch(function(e){
+        console.log("catch: " + e)
+    })
+}
+
+
+
+
+// arr.map(promise => {
+//     promise.race((id) => {
+//         console.log(id);
+
+//     });
+// });
