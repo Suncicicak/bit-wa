@@ -1,15 +1,21 @@
-const dataModule = require('./dataModule.js');
+import * as helpers from './dataModule.js';
+import * as uiHelpers from './UIModule.js';
+const url = 'http://127.0.0.1:3000/';
 
-// fetch('http://127.0.0.1:3000/')
-//     .then(function (response) {
-//         return response.json();
-//     })
-//     .then(function (res) {
-//         console.log(res);
-//     })
+helpers.fetchPosts(url)
+    .then(function(res) {
+        const postsArr = [];
 
-function getPosts(url, callback){
+        for (let i = 0; i < res.length; i++) {
+            let post = new helpers.Post(res[i].id, res[i].title, res[i].lead);
+            postsArr.push(post);
+        }
 
-}
-
-getPosts('http://127.0.0.1:3000/', callback)
+        return postsArr;
+    })
+    .then(function(posts){
+        return posts;
+    })
+    .then(function(posts){
+        uiHelpers.displayPosts(posts);
+    });

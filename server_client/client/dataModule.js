@@ -4,16 +4,16 @@ class Post {
         this.title = title;
         this.lead = lead;
     }
-
-    fetchPosts(success) {
-        fetch('http://127.0.0.1:3000/')
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (res) {
-                success(res);
-            })
-    }
 }
 
-module.exports = Post;
+const fetchPosts = function fetchPosts(url) {
+    return fetch(url)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (res) {
+            return res;
+        })
+}
+
+export { Post, fetchPosts }
