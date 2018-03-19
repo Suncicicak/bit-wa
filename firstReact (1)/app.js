@@ -1,27 +1,27 @@
-// const root = document.getElementById('root');
+const root = document.getElementById('root');
 
-// const Shop = (props) => {
-//     return (
-//         <li>{props.items}</li>
-//     )
-// }
+const Shop = (props) => {
+    return (
+        <li>{props.items}</li>
+    )
+}
 
-// const ShopList = (props) => {
-//     return props.items.map(e => <Shop items = {e}/>)
-// }
+const ShopList = (props) => {
+    return props.items.map(e => <Shop items = {e}/>)
+}
 
-// const App = (props) => {
-//     return (
-//         <div>
-//         <h1>sfdg</h1>
-//         <ShopList items = {props.name}/>
-//         </div>
-//     )   
-// }
+const App = (props) => {
+    return (
+        <div>
+        <h1>sfdg</h1>
+        <ShopList items = {props.name}/>
+        </div>
+    )   
+}
 
 
 
-// ReactDOM.render(<App name = {["da","dafs","asdf"]} />, root);
+ReactDOM.render(<App name = {["da","dafs","asdf"]} />, root);
 
 
 
