@@ -21,6 +21,24 @@
 .App-intro {
   font-size: large;
 }
+img {
+  width: 20%;
+}
+
+.smth {
+  float: right;
+  position: relative;
+  right: 250px;
+  top: 30px;
+}
+.bla {
+  border: 2px solid lightgrey;
+  padding: 30px;
+}
+
+.nav-wrapper {
+  text-align: center;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 class Footer extends Component {
     constructor (props) {
@@ -18,4 +19,7 @@ class Footer extends Component {
         )}
 }
 
+// Footer.propTypes = {
+//     title: PropTypes.string.isRequired
+// }
 export default Footer;
