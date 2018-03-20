@@ -14,6 +14,7 @@ class App extends Component {
         currentState: true
       }
      this.handleChange = this.handleChange.bind(this)
+     this.refreshUsers = this.refreshUsers.bind(this)
     }
    handleChange () {
         this.setState((prevState, props) => {
@@ -32,14 +33,19 @@ componentDidMount() {
 }
 
 refreshUsers() {
-  
+  userService.fetchUsers()
+  .then ((users) => {
+    this.setState({
+      items: users
+    })   
+  })
 }
 
 render() {
   
   return (
     <React.Fragment>
-     <Header func={this.handleChange}/>
+     <Header func={this.handleChange} func2={this.refreshUsers}/>
      <UserGrid state={this.state.currentState}  items={this.state.items}/>
      <Footer/>
     </React.Fragment>

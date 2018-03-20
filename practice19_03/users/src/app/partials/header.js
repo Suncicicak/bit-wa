@@ -17,7 +17,7 @@ import PropTypes from 'prop-types'
         <div className="nav-wrapper">
           <a href="#" className="brand-logo">Bit Persons</a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li ><i  className="material-icons">replay</i></li>
+            <li onClick={props.func2} ><i  className="material-icons">replay</i></li>
             <li onClick={props.func}><i className="material-icons">grid_on</i></li>
             
           </ul>
