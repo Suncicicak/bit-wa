@@ -4,7 +4,7 @@ import UserGrid from './partials/UserGrid'
 import Header from './partials/header'
 import Footer from './partials/footer'
 import {userService} from '../services/UserService'
-import {HashRouter, Route, Switch, } from "react-router-dom"
+import {HashRouter, Route, Switch, Redirect} from "react-router-dom"
 import About from "./partials/about"
 
 class App extends Component {
@@ -95,9 +95,8 @@ render() {
             <Header func={this.handleChange} func2={this.refreshUsers} items={this.state.items} func3={this.search} input={this.state.input}/>
             <Switch>
                <Route path="/about" component={About}/>
-            </Switch>
-            <Switch>
-               <Route path="/Home"   render={(props) => ( <UserGrid state={this.state.currentState} items={this.state.items}/>)} />                     
+               <Route path="/home" render={(props) => ( <UserGrid state={this.state.currentState} items={this.state.items}/>)} />                     
+               <Redirect from="/" to="/home"/>
             </Switch>
             <Footer/>
           </React.Fragment>
