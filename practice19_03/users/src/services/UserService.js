@@ -6,7 +6,7 @@ class UserService {
         .then ((response) => {
             return response.json();
         })
-        .then ((result) => {
+        .then ((result) => {  
             const userList = result.results
             return userList
         })

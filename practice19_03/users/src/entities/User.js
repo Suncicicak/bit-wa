@@ -4,7 +4,7 @@ class User {
         this.firstName = user.name.first 
         this.email = user.email
         this.birthday = new Date(user.dob).toDateString()
-
+        this.gender = user.gender
     }
 }
 

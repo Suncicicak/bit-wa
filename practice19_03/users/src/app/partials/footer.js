@@ -18,8 +18,4 @@ class Footer extends Component {
               
         )}
 }
-
-// Footer.propTypes = {
-//     title: PropTypes.string.isRequired
-// }
 export default Footer;
