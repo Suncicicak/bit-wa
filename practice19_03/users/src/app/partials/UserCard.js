@@ -2,7 +2,6 @@ import React from 'react';
 import {formatDate} from './../../shared/utils'
 
 
-
 const UserCard = (props) => {
   let gender = props.users.gender
   let id;
@@ -16,7 +15,7 @@ const UserCard = (props) => {
               <img src={props.users.photo} className="circle responsive-img"/>
             
         <div className="smth">
-              <span classNames="card-title">{props.users.firstName}</span>
+              <span classNames="card-title">{props.users.fullName}</span>
               <p>  <i className="material-icons">email</i>email: {props.users.email.slice(0,3)+'***'+props.users.email.slice(6,props.users.email.lenght)}</p>
               <p> <i className="material-icons">cake</i>{formatDate(props.users.birthday)}</p>
             </div>
@@ -27,7 +26,7 @@ const UserCard = (props) => {
           <div className="card"  id={id}>
             <div className="card-image">
               <img src={props.users.photo}/>
-              <span>{props.users.firstName}</span>
+              <span>{props.users.fullName}</span>
             </div>
             <div className="card-content">
               <p>email: {props.users.email.slice(0,3)+'***'+props.users.email.slice(6,props.users.email.lenght)}.</p>

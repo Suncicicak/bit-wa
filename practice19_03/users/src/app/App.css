@@ -50,6 +50,10 @@ img {
 }
 .material-icons {
   color: black;
+  padding: 4px;
+}
+a {
+  font-size: 15px;
 }
 .sk-cube-grid {
   background-color:  #EE6E73;
@@ -140,4 +144,21 @@ img {
     -webkit-transform: scale3D(0, 0, 1);
             transform: scale3D(0, 0, 1);
   } 
+}
+
+.motherfucker {
+  height: 1000px;
+  font-size: 100px;
+  text-align: center;
+}
+
+.motherfucker i {
+  font-size: 200px;
+  display: block;
+}
+.gender {
+  position: relative;
+  float: right;
+  bottom: 20px;
+  right: 20px;
 }

@@ -15,6 +15,7 @@ class App extends Component {
         mount: false,
         currentState: true,
         input: '',
+        time: localStorage.getItem('time') || Date.now()
         
       }
      this.handleChange = this.handleChange.bind(this)
@@ -39,6 +40,7 @@ componentDidMount() {
   localStorage.getItem("users") ? localStorage.getItem("users") :
   userService.fetchUsers()
   .then ((users) => {
+    // console.log(users);
     
     this.setState({
       items: localStorage.getItem("users") || users 
@@ -47,14 +49,14 @@ componentDidMount() {
     localStorage.setItem("users", JSON.stringify(users))
     
   })
-}, 2000)
+}, 0)
 
 }
  
 
 refreshUsers() {
   userService.fetchUsers()
-  .then ((users) => {
+  .then ((users) => {    
     this.setState({
       items: users
     })   
@@ -64,7 +66,16 @@ refreshUsers() {
     })
     localStorage.setItem("users", JSON.stringify(users))
     
+  });
+  let ar = new Date;
+  let br = JSON.stringify(ar)
+  this.setState({
+    time: br
   })
+  localStorage.setItem('time', Date.now())
+ 
+  
+
  
 }
 
@@ -72,19 +83,16 @@ search (e) {
   const names = JSON.parse(localStorage.getItem("users"))
  let a = []
  
- a = names.filter(word => word.firstName.startsWith(e.target.value) )
+ a = names.filter(word => word.fullName.toLowerCase().startsWith(e.target.value.toLowerCase()) )
    
-    let b = JSON.stringify(a)
-    
+    let b = JSON.stringify(a) 
             this.setState({
-             items: b, 
+             items: b,
              input: e.target.value
-              
             })        
 }
 
 render() {
-  
   
   return (
     <HashRouter>
@@ -95,10 +103,10 @@ render() {
             <Header func={this.handleChange} func2={this.refreshUsers} items={this.state.items} func3={this.search} input={this.state.input}/>
             <Switch>
                <Route path="/about" component={About}/>
-               <Route path="/home" render={(props) => ( <UserGrid state={this.state.currentState} items={this.state.items}/>)} />                     
+               <Route path="/home" render={(props) => (<UserGrid state={this.state.currentState} items={this.state.items}/>)} />                     
                <Redirect from="/" to="/home"/>
             </Switch>
-            <Footer/>
+            <Footer time={this.state.time}/>
           </React.Fragment>
         : <div class="sk-cube-grid">
         <div class="sk-cube sk-cube1"></div>

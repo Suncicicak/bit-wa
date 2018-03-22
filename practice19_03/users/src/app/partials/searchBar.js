@@ -1,6 +1,19 @@
 import React from 'react';
 
 const Search = (props) => {
+
+
+    let users = JSON.parse(localStorage.getItem('users')); 
+    let femaleCounter = 0;
+    let maleCounter = 0;
+    users.forEach(element => {
+        if (element.gender == "female" ) {
+            femaleCounter++;
+        } else {
+            maleCounter++;
+        }
+    });
+    
     return (
         <div>
     <form>
@@ -10,6 +23,7 @@ const Search = (props) => {
           <i className="material-icons">close</i>
         </div>
       </form>
+      {/* <div className="gender">Male:  Female: </div> */}
       </div>
     )
 }
